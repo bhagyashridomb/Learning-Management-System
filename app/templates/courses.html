@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Courses{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Courses</h1>
+        
+        <table class="course-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Course Name</th>
+                    <th>Description</th>
+                    <th>Difficulty Level</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                    <td>{{ course.course_id }}</td>
+                    <td>{{ course.course_name }}</td>
+                    <td>{{ course.description }}</td>
+                    <td>{{ course.difficulty }}</td>
+                    <td><a href="{{ url_for('course_details', course_id=course.course_id) }}" class="btn btn-info">View Details</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <a href="{{ url_for('add_course') }}" class="btn btn-primary">Add New Course</a>
+    </div>
+{% endblock %}

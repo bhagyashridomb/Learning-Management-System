@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Student</h1>
+        <form method="POST" action="{{ url_for('add_student') }}">
+            {{ form.hidden_tag() }}
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                {{ form.name(class="form-control") }}
+                {% for error in form.name.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                {{ form.email(class="form-control") }}
+                {% for error in form.email.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                <label for="learning_style">Learning Style:</label>
+                {{ form.learning_style(class="form-control") }}
+                {% for error in form.learning_style.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                <label for="current_level">Current Level:</label>
+                {{ form.current_level(class="form-control") }}
+                {% for error in form.current_level.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                <label for="progress">Progress:</label>
+                {{ form.progress(class="form-control") }}
+                {% for error in form.progress.errors %}
+                    <div class="error">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Add Student</button>
+            </div>
+        </form>
+        <a href="{{ url_for('students') }}" class="btn btn-secondary">Back to Student List</a>
+    </div>
+</body>
+</html>

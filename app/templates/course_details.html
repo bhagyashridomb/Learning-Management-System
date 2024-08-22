@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Course Details{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ course.course_name }}</h1>
+        <p><strong>Description:</strong> {{ course.description }}</p>
+        <p><strong>Difficulty Level:</strong> {{ course.difficulty }}</p>
+
+        <h2>Materials</h2>
+        {% if materials %}
+            <ul class="material-list">
+                {% for material in materials %}
+                <li>
+                    <strong>Type:</strong> {{ material.material_type }}<br>
+                    <strong>Title:</strong> {{ material.title }}<br>
+                    <strong>Content:</strong> {{ material.content }}
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No materials available for this course.</p>
+        {% endif %}
+
+        <h2>Assessments</h2>
+        {% if assessments %}
+            <ul class="assessment-list">
+                {% for assessment in assessments %}
+                <li>
+                    <strong>Type:</strong> {{ assessment.assessment_type }}<br>
+                    <strong>Questions:</strong> {{ assessment.questions }}
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No assessments available for this course.</p>
+        {% endif %}
+
+        <div class="button-group">
+            <a href="{{ url_for('courses') }}" class="btn btn-secondary">Back to Courses List</a>
+            <a href="{{ url_for('add_material', course_id=course.course_id) }}" class="btn btn-primary">Add Material</a>
+        </div>
+    </div>
+{% endblock %}

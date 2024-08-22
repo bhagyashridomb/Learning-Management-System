@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Student Profile{% endblock %}
+
+{% block content %}
+    <div class="student-profile-container">
+        <h1>{{ student.name }}'s Profile</h1>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+        <p><strong>Learning Style:</strong> {{ student.learning_style }}</p>
+        <p><strong>Current Level:</strong> {{ student.current_level }}</p>
+        <p><strong>Progress:</strong> {{ student.progress }}</p>
+
+        <h2>Performance</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Score</th>
+                    <th>Completion Date</th>
+                    <th>Feedback</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for perf in performances %}
+                <tr>
+                    <td>{{ perf.course_id }}</td>
+                    <td>{{ perf.score }}</td>
+                    <td>{{ perf.completion_date }}</td>
+                    <td>{{ perf.feedback }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Recommendations</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Recommended Material ID</th>
+                    <th>Reason for Recommendation</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rec in recommendations %}
+                <tr>
+                    <td>{{ rec.course_id }}</td>
+                    <td>{{ rec.recommended_material_id }}</td>
+                    <td>{{ rec.reason_for_recommendation }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ url_for('students') }}" class="back-link">Back to Students List</a>
+    </div>
+{% endblock %}

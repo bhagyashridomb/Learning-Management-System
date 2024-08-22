@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Students{% endblock %}
+
+{% block content %}
+    <div class="students-container">
+        <h1>Students</h1>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Learning Style</th>
+                    <th>Current Level</th>
+                    <th>Progress</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student.stud_id }}</td>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.email }}</td>
+                    <td>{{ student.learning_style }}</td>
+                    <td>{{ student.current_level }}</td>
+                    <td>{{ student.progress }}</td>
+                    <td><a href="{{ url_for('student_profile', stud_id=student.stud_id) }}" class="view-profile-link">View Profile</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('add_student') }}" class="add-student-link">Add New Student</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!-- student_performance.html -->
+{% extends "base.html" %}
+
+{% block title %}Student Performance{% endblock %}
+
+{% block content %}
+    <h1>{{ student.name }}'s Performance</h1>
+    <table>
+        <tr>
+            <th>Course</th>
+            <th>Score</th>
+            <th>Completion Date</th>
+            <th>Feedback</th>
+        </tr>
+        {% for performance in performances %}
+        <tr>
+            <td>{{ performance.course.name }}</td>
+            <td>{{ performance.score }}</td>
+            <td>{{ performance.completion_date }}</td>
+            <td>{{ performance.feedback }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

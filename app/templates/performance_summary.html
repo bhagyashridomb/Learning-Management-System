@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Performance Summary{% endblock %}
+
+{% block content %}
+    <h1>Performance Summary</h1>
+    <div>
+        {{ summary|safe }}
+    </div>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+{% endblock %}
