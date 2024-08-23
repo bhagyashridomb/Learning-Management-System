@@ -188,7 +188,9 @@ ul {
     color: white;
     font-weight: bold;
 }
-
+.btn-info {
+    background-color: #4CAF50;
+}
 .btn-primary {
     background-color: #4CAF50;
 }
