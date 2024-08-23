@@ -4,20 +4,19 @@
 The Personalized Learning Management System is designed to manage student profiles, courses, assessments, and performance data. It aims to enhance the learning experience by providing insightful metrics and tracking progress through a user-friendly interface.
 
 ## Features Implemented:
-Course Management:
-
+### Course Management:
 Add and Manage Courses: Allows for the creation and management of courses within the system.
 Course Details View: Provides detailed information about each course, including descriptions and materials.
-Student Profiles:
 
+### Student Profiles:
 Create and Manage Profiles: Students can create and manage their profiles, including personal information and enrollment details.
 Progress Tracking: Keeps track of each student’s progress in various courses.
-Assessment Management:
 
+### Assessment Management:
 Add and Evaluate Assessments: Allows instructors to add assessments and evaluate student performance.
 Performance Metrics: Tracks and displays metrics related to assessment performance.
-Data Visualization:
 
+### Data Visualization:
 Dashboards: Displays key metrics such as student progress, course completion rates, and assessment performance through interactive dashboards.
 Database Management:
 
